@@ -1,28 +1,11 @@
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A modern e-commerce application with product management, shopping cart, and responsive user experience.",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
-    status: "Frontend",
-  },
-  {
-    title: "Task Management App",
-    description:
-      "A productivity-focused application for creating, organizing, and tracking daily tasks efficiently.",
-    tech: ["React", "Node.js", "MongoDB"],
-    status: "Full Stack",
-  },
-  {
-    title: "Analytics Dashboard",
-    description:
-      "A clean dashboard interface for monitoring application metrics, reports, and business insights.",
-    tech: ["React", "TypeScript", "Charts"],
-    status: "Dashboard",
-  },
-];
+import { projects } from "../data/projects";
+import type { Project } from "../types/project";
 
-const ProjectsSection = () => {
+type ProjectsSectionProps = {
+  onViewProject: (project: Project) => void;
+};
+
+const ProjectsSection = ({ onViewProject }: ProjectsSectionProps) => {
   return (
     <section id="projects" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 py-20">
@@ -46,7 +29,7 @@ const ProjectsSection = () => {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <article
-              key={project.title}
+              key={project.id}
               className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_8px_30px_rgb(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-[0_20px_45px_rgb(15,23,42,0.08)]"
             >
               <div className="flex items-center justify-between">
@@ -80,6 +63,7 @@ const ProjectsSection = () => {
 
               <button
                 type="button"
+                onClick={() => onViewProject(project)}
                 className="mt-6 text-sm font-semibold text-pink-500 transition hover:text-violet-600"
               >
                 View Project →

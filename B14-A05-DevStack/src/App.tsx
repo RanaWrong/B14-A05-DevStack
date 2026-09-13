@@ -5,8 +5,10 @@ import Hero from "./components/Hero";
 import TechnologyGrid from "./components/TechnologyGrid";
 import StackSidebar from "./components/StackSidebar";
 import type { Technology } from "./types/technology";
+import type { Project } from "./types/project";
 import technologiesData from "./data/technologies.json";
 import ProjectsSection from "./components/ProjectsSection";
+import ProjectDetails from "./components/ProjectDetails";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
@@ -15,6 +17,7 @@ function App() {
     const [technologies, setTechnologies] = useState<Technology[]>([]);
     const [stack, setStack] = useState<Technology[]>([]);
     const [loading, setLoading] = useState(true);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     useEffect(() => {
         const loadTechnologies = async () => {
@@ -31,6 +34,20 @@ function App() {
 
         loadTechnologies();
     }, []);
+
+    const handleViewProject = (project: Project) => {
+        setSelectedProject(project);
+        window.scrollTo({ top: 0 });
+    };
+
+    const handleBackToProjects = () => {
+        setSelectedProject(null);
+
+        // Return the reader to the card they came from.
+        setTimeout(() => {
+            document.getElementById("projects")?.scrollIntoView();
+        }, 0);
+    };
 
     const handleAddToStack = (technology: Technology) => {
         const alreadyExists = stack.some(
@@ -83,6 +100,21 @@ function App() {
         );
     }
 
+    if (selectedProject) {
+        return (
+            <>
+                <Navbar />
+
+                <ProjectDetails
+                    project={selectedProject}
+                    onBack={handleBackToProjects}
+                />
+
+                <Footer />
+            </>
+        );
+    }
+
     return (
         <>
             <Navbar />
@@ -128,7 +160,7 @@ function App() {
                     </div>
                 </section>
 
-                <ProjectsSection />
+                <ProjectsSection onViewProject={handleViewProject} />
 
                 <AboutSection />
 
