@@ -8,8 +8,8 @@
 
 ## 🔗 Links
 
-- **Live Site:** _add your deployed URL here_
-- **Repository:** _add your GitHub URL here_
+- **Live Site:** _https://devstack-b14-a05.netlify.app/_
+- **Repository:** _https://github.com/RanaWrong/B14-A05-DevStack_
 
 ---
 
