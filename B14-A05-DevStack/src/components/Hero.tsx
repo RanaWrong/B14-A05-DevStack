@@ -1,3 +1,5 @@
+import bannerImg from "../../assets/banner-stack.png";
+
 const Hero = () => {
     return (
         <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -37,15 +39,11 @@ const Hero = () => {
 
                 {/* Hero Illustration */}
                 <div className="flex justify-center lg:justify-end">
-                    <div className="flex h-72 w-72 items-center justify-center rounded-full bg-gradient-to-br from-pink-50 via-violet-50 to-orange-50 sm:h-96 sm:w-96">
-                        <div className="rounded-3xl border border-white bg-white/70 p-10 shadow-xl backdrop-blur">
-                            <div className="space-y-3">
-                                <div className="h-14 w-32 rounded-xl bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 shadow-lg" />
-                                <div className="mx-auto h-14 w-24 rounded-xl bg-slate-900 shadow-lg" />
-                                <div className="h-14 w-32 rounded-xl bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500 shadow-lg" />
-                            </div>
-                        </div>
-                    </div>
+                    <img
+                        src={bannerImg}
+                        alt="DevStack Illustration"
+                        className="w-full max-w-md object-contain drop-shadow-xl sm:max-w-lg"
+                    />
                 </div>
 
             </div>
