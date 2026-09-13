@@ -7,6 +7,13 @@ import StackSidebar from "./components/StackSidebar";
 import type { Technology } from "./types/technology";
 import technologiesData from "./data/technologies.json";
 import ProjectsSection from "./components/ProjectsSection";
+import AboutSection from "./components/AboutSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+
+
+
+
 function App() {
     const [technologies, setTechnologies] = useState<Technology[]>([]);
     const [stack, setStack] = useState<Technology[]>([]);
@@ -125,7 +132,14 @@ function App() {
                 </section>
 
                 <ProjectsSection />
+
+                <AboutSection />
+
+
+                <ContactSection />
             </main>
+
+            <Footer />
         </>
     );
 }
