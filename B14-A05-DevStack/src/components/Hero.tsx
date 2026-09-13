@@ -2,8 +2,8 @@ import bannerImg from "../../assets/banner-stack.png";
 
 const Hero = () => {
     return (
-        <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-            <div className="grid items-center gap-12 lg:grid-cols-2">
+        <section className="mx-auto max-w-7xl px-6 py-12 md:py-16 lg:py-10">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
 
                 {/* Hero Content */}
                 <div>

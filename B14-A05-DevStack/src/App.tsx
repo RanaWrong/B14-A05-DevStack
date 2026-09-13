@@ -11,9 +11,6 @@ import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
-
-
-
 function App() {
     const [technologies, setTechnologies] = useState<Technology[]>([]);
     const [stack, setStack] = useState<Technology[]>([]);
@@ -134,7 +131,6 @@ function App() {
                 <ProjectsSection />
 
                 <AboutSection />
-
 
                 <ContactSection />
             </main>
